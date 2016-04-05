@@ -31,6 +31,21 @@ def isMagicSquare(grid):
         return False
     return True
 
+def findMagicSquare(grid):
+    """
+    Precondition: grid is a rectangle with the number of columns 1 more than the number of rows
+    """
+    row = []
+    sums = sum(grid[0])
+    for i in range(len(grid[0])):
+        tmpSum = 0
+        for j in range(len(grid)):
+            tmpSum += grid[j][i]
+        row.append(sums - tmpSum)
+    tmpGrid = grid[:]
+    tmpGrid.append(row)
+    return isMagicSquare(tmpGrid)
+
 
 
 
@@ -46,3 +61,9 @@ print(isMagicSquare(grid2))
 
 grid3 = [[3, 5, 7], [8, 1, 6], [4, 9, 2]]
 print(isMagicSquare(grid3))
+
+grid4 = [[8, 1, 6], [3, 5, 7]]
+print(findMagicSquare(grid4))
+
+grid5 = [[3, 5, 7], [8, 1, 6]]
+print(findMagicSquare(grid5))
