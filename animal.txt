@@ -1,0 +1,10 @@
+animal: dog
+yesQuestions: 0, 1
+
+animal: cat
+yesQuestions: 0
+
+question: Does it bark?
+
+question: Is it a mammal?
+
