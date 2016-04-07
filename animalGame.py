@@ -54,8 +54,6 @@ class Game:
             file.write("question: " + question + "\n\n")
 
         file.close()
-    def saveFile(self):
-        pass
     def askQuestion(self, questionNum):
         pass
     def checkAnimal(self, yesQuestions):
@@ -64,7 +62,13 @@ class Game:
                 return True
         return False
     def addAnimal(self, yesQuestions):
-        pass
+        print("Please help me learn.")
+        name = input("What is the name of your animal? ")
+        print("What is a good question that answers yes for " + name + "? ")
+        question = input()
+        yesQuestions.append(question)
+        self.__animals.append(Animal(name, yesQuestions))
+        self.__questions.append(question)
     def startGame(self):
         pass
 
