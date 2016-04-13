@@ -2,17 +2,20 @@
 
 
 void print(string& item) {
-    cout << item << " ";
+    cout << item << "-";
 }
 
 int main() {
     DecisionTree tree;
+    /*
     tree.insertByAnswers("question1", "animal1");
     tree.insertByAnswers("question2", "animal2", "n");
     tree.insertByAnswers("question3", "animal3", "nn");
     tree.insertByAnswers("question4", "animal4", "y");
     tree.insertByAddress("question5", "animal5", "1.1.1");
-    
+    */
+    tree.open("animal.txt");
+    cout << "here" << endl;
     tree.breadthFirstTraversal(print);
     cout << endl;
     
@@ -20,6 +23,6 @@ int main() {
     string address = tree.addressOf(search);
     cout << "Address of " << search << ": " << tree.addressOf(search) << endl;
     cout << "Item at address " << address << ": " << tree.getByAddress(address) << endl;
-    tree.save("");
+    //tree.save("animal.txt");
     return 0;
 }
