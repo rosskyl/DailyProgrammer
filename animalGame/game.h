@@ -11,9 +11,24 @@
 class Game {
     public:
 	Game();
-    private:
-	DecisionTree tree;
 	
+	void openFile(const string& filename);
+	
+	void saveFile(const string& filename) const;
+	
+	void askQuestion();
+	
+	void checkAnimal();
+    private:
+	void win();
+	
+	void lose();
+	
+	void addAnimal();
+	
+	void addQuestion();
+	
+	DecisionTree tree;
 	string address;
 };
 

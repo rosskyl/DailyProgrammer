@@ -18,7 +18,6 @@ void DecisionTree::insertByAddress(const string& question, const string& animalN
 	    answers += "y";
 	else
 	    throw invalid_argument(address + " is invalid");
-
     insertByAnswers(question, animalName, answers);
 }
 
@@ -40,11 +39,15 @@ void DecisionTree::insertByAnswers(const string& question, const string& animalN
     
     nodeType<string> *animNode = new nodeType<string>;
     animNode->info = animalName;
+    animNode->llink = NULL;
+    animNode->rlink = NULL;
     
     nodeType<string> *qNode = new nodeType<string>;
     qNode->info = question;
     qNode->llink = p;
     qNode->rlink = animNode;
+    
+    
     
     if (ans == 'e')
 	this->root = qNode;
@@ -53,7 +56,7 @@ void DecisionTree::insertByAnswers(const string& question, const string& animalN
     else
 	previous->rlink = qNode;
 }
-
+    
 string DecisionTree::addressOf(const string& item) const {
     //need the erase to get rid of the leading :
     return addressOfNode(item, this->root).erase(0,1);
@@ -85,7 +88,11 @@ string DecisionTree::getByAnswers(const string& answers) const {
 	else
 	    throw invalid_argument(answers + " is invalid");
     }//end for (int i = 0; i < answers.length(); i++)
-    return p->info;
+    
+    if (p == NULL)
+	return "NULL";
+    else
+	return p->info;
 }
 
 void DecisionTree::save(const string& filename) const {
@@ -182,6 +189,7 @@ void DecisionTree::insertByAnswersQuestion(const string& question, const string&
     nodeType<string> *qNode = new nodeType<string>;
     qNode->info = question;
     qNode->llink = p;
+    qNode->rlink = NULL;
     
     if (ans == 'e')
 	this->root = qNode;

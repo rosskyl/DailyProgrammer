@@ -31,12 +31,12 @@ class DecisionTree: public binaryTreeType<string> {
 	void save(const string& filename) const;
 	
 	void open(const string& filename);
-    private:
-	string addressOfNode(const string& item, nodeType<string> *p) const;
 	
 	void insertByAddressQuestion(const string& question, const string& address);
 	
 	void insertByAnswersQuestion(const string& question, const string& answers);
+    private:
+	string addressOfNode(const string& item, nodeType<string> *p) const;
 };//end class DecisionTree: public binaryTreeType<string>
 
 #endif
