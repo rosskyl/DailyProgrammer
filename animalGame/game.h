@@ -10,16 +10,16 @@
 
 class Game {
     public:
-	Game();
-	
 	void openFile(const string& filename);
 	
 	void saveFile(const string& filename) const;
 	
+	void startGame();
+    private:
 	void askQuestion();
 	
 	void checkAnimal();
-    private:
+	
 	void win();
 	
 	void lose();

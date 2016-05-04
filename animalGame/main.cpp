@@ -24,11 +24,7 @@ int main() {
     
     game.openFile("animal.txt");
     
-    game.askQuestion();
-    game.askQuestion();
-    game.askQuestion();
-    game.askQuestion();
-    game.askQuestion();
+    game.startGame();
     
     game.saveFile("animal.txt");
     

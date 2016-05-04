@@ -7,11 +7,9 @@
 #include <stdexcept>
 
 ///TODO addin error checking for inputs
-///TODO fix segmentation fault when trying to add just an animal-5 nos
 
-Game::Game() {
-    address = "";
-}
+
+
 
 void Game::openFile(const string& filename) {
     tree.open(filename);
@@ -19,6 +17,11 @@ void Game::openFile(const string& filename) {
 
 void Game::saveFile(const string& filename) const {
     tree.save(filename);
+}
+
+void Game::startGame() {
+    address = "";
+    askQuestion();
 }
 
 void Game::askQuestion() {
@@ -51,6 +54,7 @@ void Game::askQuestion() {
 	    address = "1";
 	else
 	    address = address + ".1";
+    askQuestion();
 }
 
 void Game::checkAnimal() {
@@ -76,7 +80,7 @@ void Game::win() {
     answer = answer[0];
     
     if (answer == "y" || answer == "Y")
-	cerr << "play again" << endl;
+	startGame();
     else
 	cout << "Thank you for playing" << endl;
 }
@@ -89,6 +93,17 @@ void Game::lose() {
 	addAnimal();
     else
 	addQuestion();
+    
+    cout << "Would you like to play again?" << endl;
+    
+    string answer;
+    cin >> answer;
+    answer = answer[0];
+    
+    if (answer == "y" || answer == "Y")
+	startGame();
+    else
+	cout << "Thank you for playing" << endl;
 }
 
 void Game::addAnimal() {
