@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-void DecisionTree::insertByAddress(const string& question, const string& animalName, const string& address) {
+void DecisionTree::insertByAddress(const string& question, const string& answer, const string& address) throw (invalid_argument) {
     string answers = "";
     
     for (int i = 0; i < address.length(); i+= 2)
@@ -18,10 +18,10 @@ void DecisionTree::insertByAddress(const string& question, const string& animalN
 	    answers += "y";
 	else
 	    throw invalid_argument(address + " is invalid");
-    insertByAnswers(question, animalName, answers);
+    insertByAnswers(question, answer, answers);
 }
 
-void DecisionTree::insertByAnswers(const string& question, const string& animalName, const string& answers = "") {
+void DecisionTree::insertByAnswers(const string& question, const string& answer, const string& answers = "") throw (invalid_argument) {
     char ans = 'e';
     nodeType<string> *p = this->root;
     nodeType<string> *previous;
@@ -37,15 +37,15 @@ void DecisionTree::insertByAnswers(const string& question, const string& animalN
 	    throw invalid_argument(answers + " is invalid");
     }//end for (int i = 0; i < answers.length(); i++)
     
-    nodeType<string> *animNode = new nodeType<string>;
-    animNode->info = animalName;
-    animNode->llink = NULL;
-    animNode->rlink = NULL;
+    nodeType<string> *ansNode = new nodeType<string>;
+    ansNode->info = answer;
+    ansNode->llink = NULL;
+    ansNode->rlink = NULL;
     
     nodeType<string> *qNode = new nodeType<string>;
     qNode->info = question;
     qNode->llink = p;
-    qNode->rlink = animNode;
+    qNode->rlink = ansNode;
     
     
     
@@ -62,7 +62,7 @@ string DecisionTree::addressOf(const string& item) const {
     return addressOfNode(item, this->root).erase(0,1);
 }
 
-string DecisionTree::getByAddress(const string& address) const {
+string DecisionTree::getByAddress(const string& address) const throw (invalid_argument) {
     string answers = "";
     
     for (int i = 0; i < address.length(); i+= 2)
@@ -75,7 +75,7 @@ string DecisionTree::getByAddress(const string& address) const {
     return getByAnswers(answers);
 }
 
-string DecisionTree::getByAnswers(const string& answers) const {
+string DecisionTree::getByAnswers(const string& answers) const throw (invalid_argument) {
     char ans = 'e';
     nodeType<string> *p = this->root;
     
@@ -156,7 +156,7 @@ string DecisionTree::addressOfNode(const string& item, nodeType<string> *p) cons
     }//end else
 }
 
-void DecisionTree::insertByAddressQuestion(const string& question, const string& address) {
+void DecisionTree::insertByAddressQuestion(const string& question, const string& address) throw (invalid_argument) {
     string answers = "";
     
     for (int i = 0; i < address.length(); i+= 2)
@@ -170,7 +170,7 @@ void DecisionTree::insertByAddressQuestion(const string& question, const string&
     insertByAnswersQuestion(question, answers);
 }
 
-void DecisionTree::insertByAnswersQuestion(const string& question, const string& answers) {
+void DecisionTree::insertByAnswersQuestion(const string& question, const string& answers) throw (invalid_argument) {
     char ans = 'e';
     nodeType<string> *p = this->root;
     nodeType<string> *previous;
