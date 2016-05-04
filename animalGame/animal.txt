@@ -1,13 +1,4 @@
-0 q:question1
-1 q:question2
-2 q:question4
-1.1 q:question3
-1.2 a:animal2
-2.1 a:animal1
-2.2 a:animal4
-1.1.1 q:question5
-1.1.2 a:animal3
-1.1.1.1 q:question6
-1.1.1.2 a:animal5
-1.1.1.1.1 a:animal6
-1.1.1.1.2 a:animal7
+0 q:Is it a mammal?
+2 q:Does it bark?
+2.1 a:cat
+2.2 a:dog

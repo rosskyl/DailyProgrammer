@@ -21,6 +21,10 @@ void Game::saveFile(const string& filename) const {
 
 void Game::startGame() {
     address = "";
+    
+    cout << "Please think of an animal and press enter when finished";
+    cin.ignore();
+    
     askQuestion();
 }
 
