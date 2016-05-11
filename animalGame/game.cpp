@@ -35,10 +35,6 @@ void Game::askQuestion() {
 	checkAnimal();
 	return;
     }
-    else if (type == 'N') {
-	lose();
-	return;
-    }
     else if (type != 'q')
 	throw range_error("This should be a question: " + question);
     
@@ -130,7 +126,8 @@ void Game::addQuestion() {
     cout << "What is a good question to distinguish "
 	<< currAnimal << " from " << newAnimal << "?" << endl;
     string question;
-    cin >> question;
+    cin.ignore(80,'\n');
+    getline(cin, question);
     
     question = "q:" + question;
     newAnimal = "a:" + newAnimal;

@@ -1,4 +1,8 @@
 0 q:Is it a mammal?
 2 q:Does it bark?
-2.1 a:cat
+2.1 q:Does it swim?
 2.2 a:dog
+2.1.1 a:cat
+2.1.2 q:Is it a carnivore?
+2.1.2.1 a:Dolphin
+2.1.2.2 a:Shark
