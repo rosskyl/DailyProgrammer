@@ -11,8 +11,9 @@ s.connect((host, port))
 
 command = input()
 while command != "exit":
+    command = command.encode(encoding="UTF-8")
     s.send(command)
-    print(s.recv(1024))
+    print(s.recv(1024).decode(encoding="UTF-8"))
     command = input()
 
 s.send(b"exit")
